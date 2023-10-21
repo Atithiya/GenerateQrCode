@@ -24,14 +24,20 @@
       function generateQR() {
         // if qrText.value.length rather than 0 = input has value
         if (qrText.value.length > 0) {
+          // Check if the input field has content (length greater than 0).
           qrImage.src =
             "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
             qrText.value;
+          // If the input is not empty, set the 'src' attribute of the 'qrImage' element to a URL that generates the QR code.
           imgBox.classList.add("show-img");
+          // Add the "show-img" class to the 'imgBox' element to make the QR code image visible.
         } else {
+          // If the input field is empty:
           qrText.classList.add("error");
+          // Add the "error" class to the 'qrText' element to indicate an error or empty input.
           setTimeout(() => {
             qrText.classList.remove("error");
+            // After 1 second, remove the "error" class, clearing the error indication.
           }, 1000);
         }
       }
